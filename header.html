@@ -44,14 +44,13 @@ header{
 .header-inner{
   max-width:760px;
   margin:0 auto;
-  padding:18px 20px;
+  padding:14px 20px;
   display:flex;
-  justify-content:space-between;
   align-items:center;
-  gap:12px;
+  gap:14px;
 }
 
-/* LEFT NAV (BACK / HOME) */
+/* LEFT NAV */
 .nav-left{
   display:flex;
   align-items:center;
@@ -63,11 +62,29 @@ header{
   color:var(--ink-sub);
 }
 
-/* BRAND */
-.brand{
-  font-size:20px;
-  font-weight:600;
-  letter-spacing:.4px;
+/* SEARCH */
+.search-box{
+  flex:1;
+}
+
+.search-box input{
+  width:100%;
+  padding:10px 14px;
+  border-radius:var(--radius-md);
+  border:1px solid var(--border-soft);
+  font-size:14px;
+  background:var(--bg-soft);
+  color:var(--ink-main);
+}
+
+.search-box input::placeholder{
+  color:var(--ink-sub);
+}
+
+.search-box input:focus{
+  outline:none;
+  border-color:var(--accent);
+  box-shadow:0 0 0 3px rgba(255,138,31,.18);
 }
 
 /* RIGHT NAV */
@@ -87,7 +104,7 @@ header{
   font-weight:600;
 }
 
-/* ================= MAIN SHARED ================= */
+/* ================= SHARED ================= */
 .container{
   max-width:760px;
   margin:0 auto;
@@ -113,13 +130,12 @@ h1::after{
   background:linear-gradient(90deg, var(--accent), #ffb36b);
 }
 
-/* ACCENT WORD */
 .accent{
   color:var(--accent);
   font-weight:700;
 }
 
-/* ================= CARD ================= */
+/* CARD */
 .card{
   position:relative;
   background:var(--bg-soft);
@@ -163,7 +179,7 @@ h1::after{
   line-height:1.6;
 }
 
-/* ================= BUTTON ================= */
+/* BUTTON */
 .button{
   display:inline-flex;
   align-items:center;
@@ -183,7 +199,6 @@ h1::after{
   box-shadow:0 12px 28px rgba(255,138,31,.45);
 }
 
-/* SECONDARY BUTTON */
 .button.secondary{
   background:transparent;
   color:var(--accent);
@@ -196,7 +211,7 @@ h1::after{
   color:#ffffff;
 }
 
-/* ================= FOOTER ================= */
+/* FOOTER BASE */
 footer{
   margin-top:80px;
   padding:36px 20px;
@@ -222,8 +237,10 @@ footer{
       <a href="/">Home</a>
     </div>
 
-    <!-- BRAND -->
-    <div class="brand">AITHERIA</div>
+    <!-- SEARCH -->
+    <div class="search-box">
+      <input type="text" placeholder="Search tools…" />
+    </div>
 
     <!-- RIGHT -->
     <nav class="nav">
