@@ -3,34 +3,34 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Aitheria — Tools Platform</title>
+  <title>AITHERIA — Tools Platform</title>
 
-  <!-- GLOBAL STYLE -->
+  <!-- GLOBAL CSS -->
   <link rel="stylesheet" href="./styles.css" />
 </head>
 
 <body>
 
-  <!-- HEADER -->
+  <!-- HEADER (ROOT) -->
   <div id="header"></div>
 
   <!-- MAIN CONTENT -->
   <main class="container">
 
     <h1>
-      Aitheria <span class="accent">Tools</span>
+      AITHERIA <span class="accent">Tools</span>
     </h1>
 
     <p class="tagline">
-      Platform tools AI untuk edukasi, visual produk, dan eksperimen kreatif.
+      Platform AI tools untuk edukasi, visual produk, dan eksperimen kreatif.
     </p>
 
     <!-- CATEGORY: EDUCATION -->
     <div class="card">
       <h3>Education Tools</h3>
       <p>
-        Tools AI untuk membuat soal, materi belajar, dan konten edukasi
-        berbasis visual dan narasi.
+        Tools AI untuk membuat soal, materi belajar, dan konten edukatif
+        berbasis narasi dan visual.
       </p>
       <a href="./education/" class="button">
         Lihat tools
@@ -62,36 +62,24 @@
 
   </main>
 
-  <!-- FOOTER -->
+  <!-- FOOTER (GLOBAL) -->
   <div id="footer"></div>
 
-  <!-- FETCH PARTIALS -->
+  <!-- LOAD HEADER & FOOTER -->
   <script>
-    fetch('./partials/header.html')
+    // header ROOT
+    fetch('./header.html')
       .then(res => res.text())
       .then(html => {
         document.getElementById('header').innerHTML = html;
-        bindBackButton(); // bind SETELAH header masuk
       });
 
-    fetch('./partials/footer.html')
+    // footer GLOBAL
+    fetch('./footer.html')
       .then(res => res.text())
       .then(html => {
         document.getElementById('footer').innerHTML = html;
       });
-
-    function bindBackButton(){
-      const backBtn = document.getElementById('btn-back');
-      if (!backBtn) return;
-
-      backBtn.onclick = () => {
-        if (window.history.length > 1) {
-          window.history.back();
-        } else {
-          window.location.href = '/aitheria/';
-        }
-      };
-    }
   </script>
 
 </body>
