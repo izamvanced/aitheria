@@ -1,194 +1,93 @@
-/* =====================================
-   AITHERIA MASTER CSS — STABLE BUILD
-   ===================================== */
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AITHERIA — Tools Platform</title>
 
-:root{
-  --bg:#f7f5f2;
-  --fg:#1f2937;
-  --muted:#6b7280;
-  --card:#ffffff;
-  --accent:#ff8a1f;
-  --border:#e5e7eb;
-}
+  <!-- GLOBAL CSS -->
+  <link rel="stylesheet" href="./styles.css"/>
+</head>
 
-/* RESET */
-*{
-  box-sizing:border-box;
-}
+<body>
 
-body{
-  margin:0;
-  background:var(--bg);
-  color:var(--fg);
-  font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
-  line-height:1.6;
-}
+  <!-- HEADER -->
+  <div id="header"></div>
 
-/* =====================
-   LAYOUT
-   ===================== */
+  <!-- MAIN -->
+  <main class="container">
 
-.container{
-  max-width:960px;
-  padding:32px 20px;
-}
+    <!-- HERO -->
+    <h1 class="hero-title">
+      AITHERIA <span class="accent">Tools</span>
+    </h1>
 
-/* =====================
-   🔥 HERO (LOCKED)
-   ===================== */
+    <p class="tagline">
+      Platform AI tools untuk edukasi, visual produk, dan eksperimen kreatif.
+    </p>
 
-.hero-title{
-  font-size:56px;
-  font-weight:800;
-  letter-spacing:-1.2px;
-  line-height:1.05;
-  margin-bottom:14px;
-}
+    <!-- EDUCATION -->
+    <div class="card">
+      <h3>Education Tools</h3>
+      <p>
+        Tools AI untuk membuat soal, materi belajar, dan konten edukatif
+        berbasis narasi dan visual.
+      </p>
+      <a href="./education/" class="button">
+        Lihat tools
+      </a>
+    </div>
 
-/* HERO COLOR SYSTEM */
-.accent{
-  background:linear-gradient(90deg,#ff8a1f,#ffb067);
-  -webkit-background-clip:text;
-  color:transparent;
-}
+    <!-- PRODUCT -->
+    <div class="card">
+      <h3>Product & Visual Tools</h3>
+      <p>
+        Tools untuk UMKM dan brand agar visual produk terlihat profesional
+        tanpa photoshoot fisik.
+      </p>
+      <a href="./product-visuals/" class="button">
+        Lihat tools
+      </a>
+    </div>
 
-/* TAGLINE */
-.tagline{
-  color:var(--muted);
-  max-width:720px;
-  margin-bottom:30px;
-  font-size:18px;
-}
+    <!-- STYLING -->
+    <div class="card">
+      <h3>Personal Styling Tools</h3>
+      <p>
+        Eksperimen AI untuk outfit, gaya rambut, dan hijab secara virtual.
+      </p>
+      <a href="./styling/" class="button">
+        Lihat tools
+      </a>
+    </div>
 
-/* MOBILE HERO */
-@media(max-width:640px){
-  .hero-title{
-    font-size:36px;
-  }
-}
+  </main>
 
-/* =====================
-   CARD
-   ===================== */
+  <!-- FOOTER -->
+  <div id="footer"></div>
 
-.card{
-  background:var(--card);
-  border-radius:18px;
-  padding:24px;
-  margin-bottom:24px;
-  box-shadow:0 10px 25px rgba(0,0,0,.06);
-  transition:.25s;
-}
+  <!-- LOAD HEADER + FOOTER -->
+  <script>
 
-.card:hover{
-  transform:translateY(-4px);
-  box-shadow:0 20px 40px rgba(0,0,0,.08);
-}
+    fetch('./header.html')
+      .then(res=>res.text())
+      .then(html=>{
+        document.getElementById('header').innerHTML=html;
 
-/* =====================
-   BUTTON
-   ===================== */
+        // BACK BUTTON
+        const btn=document.getElementById("btn-back");
+        if(btn){
+          btn.onclick=()=>history.back();
+        }
+      });
 
-.button{
-  display:inline-block;
-  background:var(--accent);
-  color:#fff;
-  padding:12px 22px;
-  border-radius:14px;
-  text-decoration:none;
-  font-weight:700;
-}
+    fetch('./footer.html')
+      .then(res=>res.text())
+      .then(html=>{
+        document.getElementById('footer').innerHTML=html;
+      });
 
-/* =====================
-   HEADER
-   ===================== */
+  </script>
 
-header{
-  border-bottom:1px solid var(--border);
-  background:var(--bg);
-}
-
-.header-inner{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:16px 20px;
-}
-
-.nav-left{
-  display:flex;
-  gap:18px;
-  align-items:center;
-}
-
-.nav-right{
-  display:flex;
-  align-items:center;
-}
-
-header a{
-  text-decoration:none;
-  color:var(--fg);
-  font-weight:600;
-}
-
-header a:hover{
-  color:var(--accent);
-}
-
-#btn-back{
-  border:1px solid var(--border);
-  padding:6px 12px;
-  border-radius:8px;
-  background:none;
-  cursor:pointer;
-}
-
-/* =====================
-   HERO IMAGE
-   ===================== */
-
-.hero-image{
-  max-width:1100px;
-  margin:24px auto 0 auto;
-  padding:0 16px;
-}
-
-.hero-image img{
-  width:100%;
-  height:auto;
-  max-height:420px;
-  object-fit:cover;
-  border-radius:18px;
-  display:block;
-}
-
-@media(max-width:640px){
-  .hero-image img{
-    max-height:320px;
-  }
-}
-
-/* SAFE IMAGE */
-.card img{
-  max-width:100%;
-  height:auto;
-}
-
-/* =====================
-   FOOTER
-   ===================== */
-
-footer{
-  text-align:center;
-  padding:40px 20px;
-  color:var(--muted);
-  font-size:14px;
-  border-top:1px solid var(--border);
-  margin-top:40px;
-}
-
-footer a{
-  color:var(--muted);
-  text-decoration:none;
-}
+</body>
+</html>
